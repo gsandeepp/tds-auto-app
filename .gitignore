@@ -1,0 +1,25 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets / config files
+.env
+*.key
+*.token
+
+# Hugging Face cache / artifacts (optional)
+*.sqlite
+*.log
+
+# VS Code settings (optional)
+.vscode/
