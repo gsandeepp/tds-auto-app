@@ -1,4 +1,23 @@
-# main.py
+from dotenv import load_dotenv
+import os
+from pathlib import Path
+
+# Load .env from the parent folder (d:\TDSp1\.env) if present. Falls back to default behavior.
+env_path = Path(__file__).resolve().parents[1] / ".env"
+if env_path.exists():
+    load_dotenv(env_path)
+else:
+    # If no explicit .env found, attempt to load a .env in the current working directory
+    load_dotenv()
+
+# ---------- Config (ENV) ----------
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+MY_SECRET = os.getenv("MY_SECRET", "YOLO")
+# Note: expect the key name to be GITHUB_USERNAME in the env file or system env
+GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
+
+
 import os
 import re
 import time
@@ -12,11 +31,7 @@ from pydantic import BaseModel
 import requests
 from github import Github, GithubException
 
-# ---------- Config (ENV) ----------
-MY_SECRET = os.getenv("MY_SECRET", "YOLO")
-GITHUB_TOKEN = os.getenv("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 ")
-GITHUB_USERNAME = os.getenv("gsandeepp")
-OPENAI_API_KEY = os.getenv("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")  # optional
+
 
 if not GITHUB_TOKEN or not GITHUB_USERNAME:
     # We don't raise here to allow local testing without pushing to GitHub,
