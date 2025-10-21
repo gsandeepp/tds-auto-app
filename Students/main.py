@@ -13,7 +13,7 @@ else:
 # ---------- Config (ENV) ----------
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-MY_SECRET = os.getenv("MY_SECRET", "YOLO")
+MY_SECRET = os.getenv("MY_SECRET", "MY_SECRET = YOLO")
 # Note: expect the key name to be GITHUB_USERNAME in the env file or system env
 GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
 
